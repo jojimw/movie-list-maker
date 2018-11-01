@@ -1,0 +1,118 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    color: #696969;
+    padding: 4rem;
+    border: 1px solid #eee;
+    box-shadow: 0 0rem 1.5rem rgba(0,0,0,0.1);
+    min-height: 70vh;
+    background-color: #fff;
+    justify-content: space-between;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.col:not(:last-child) {
+    margin-right: 5rem;
+    width: 100%;
+}
+
+.list-group {
+    list-style: none;
+    margin-top: 2rem; 
+}
+
+.list-group-item {
+    padding: .5rem 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.list-group-item li {
+    display: flex;
+    text-align: justify;    
+}
+
+.delete-button {
+    height: 1rem;
+    fill: #ccc;
+    cursor: pointer;
+    margin: 0 1rem;
+}
+
+.delete-button:hover {
+    transform-origin: bottom center;
+    animation: delete-button-animate .5s linear;
+}
+
+@keyframes delete-button-animate {
+    0%, 50%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: rotate(-10deg) scale(1.1);
+    }
+
+    75% {
+        transform: rotate(10deg) scale(1.1);
+    }
+}
+
+.form {
+    margin-top: 2rem;
+}
+
+.input-div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: .3rem 0;
+}
+
+.input-label {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 15rem;
+    margin-left: 1rem;
+    padding: .3rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+}
+
+.form-control:focus {
+    margin-left: 1rem;
+    outline: none;
+    border: 1px solid #ccc;
+    box-shadow: 0 0.2rem 0.6rem rgba(0,0,0,0.1);
+    border-radius: 1rem;
+}
+
+.btn-success {
+    padding: .6rem;
+    background-color: #00ff40;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 2.2rem;
+    color: #fff;
+    font-weight: 600;
+    width: 6rem;
+    font-size: 1rem;
+}
+
+.btn-success:hover {
+    box-shadow: 0 0.2rem 0.6rem rgba(0,0,0,0.1);
+}
+
+.btn-success:active {
+    box-shadow: 0 0.2rem 1rem rgba(0,0,0,0.3);
+}
