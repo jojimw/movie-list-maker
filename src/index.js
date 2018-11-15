@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import store from "./js/store/index";
 import App from "./js/components/App";
 
-// Force commit 2
+// Force commit 3
 
 render(
     <Provider store={store}>
