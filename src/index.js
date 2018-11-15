@@ -5,6 +5,8 @@ import { Provider } from "react-redux";
 import store from "./js/store/index";
 import App from "./js/components/App";
 
+// Force commit
+
 render(
     <Provider store={store}>
         <BrowserRouter>
