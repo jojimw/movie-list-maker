@@ -1,6 +1,7 @@
 import {
     ADD_MOVIE,
-    DELETE_MOVIE
+    DELETE_MOVIE,
+    TOGGLE_SAVING_LIST
 } from "../constants/action-types";
 
 const initialState = {
@@ -9,7 +10,8 @@ const initialState = {
             title: "Harry Potter and the Order of the Pheonix",
             id: 1
         },
-    ]
+    ],
+    savingList: false
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -24,6 +26,11 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 movies: [...newMovieArray] 
+            }
+        case TOGGLE_SAVING_LIST:
+            return {
+                ...state,
+                savingList: !state.savingList 
             }
         default:
             return state;

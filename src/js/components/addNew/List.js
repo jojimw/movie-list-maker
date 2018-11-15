@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import deleteButton from "../../img/delete-button.svg";
-import { deleteMovie } from "./../actions/index";
+import deleteButton from "../../../img/delete-button.svg";
+import { deleteMovie } from "../../actions/index";
 
 
 const ConnectedList = props => {
@@ -35,8 +35,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-    return {
-        deleteMovie: movie => dispatch(deleteMovie(movie))
+    return {deleteMovie
+        : movie => dispatch(deleteMovie(movie))
     } 
 };
 

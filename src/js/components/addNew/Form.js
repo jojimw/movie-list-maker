@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import uuidv1 from "uuid";  
-import { addMovie } from "./../actions/index";
+import {
+    addMovie,
+    toggleSavingList
+} from "../../actions/index";
+
+import Modal from "../../UI/Modal";
 
 class ConnectedForm extends Component {
     // CONSTRUCTOR METHOD
@@ -36,16 +41,16 @@ class ConnectedForm extends Component {
     // NON-CONSTRUCTOR METHOD
     // ******************
     state = {
-        title: ""
+        title: "",
     }
 
-    handleChange = (event) => {
+    handleChange = event => {
         this.setState({
             [event.target.id]: event.target.value
         });
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = event => {
         event.preventDefault();
         const title = this.state.title;
         if (title) {
@@ -58,31 +63,41 @@ class ConnectedForm extends Component {
         }
     }
 
+    handleSaveList = () => {
+        this.props.toggleSavingList();
+    }
+
     render() {
         const title = this.state.title;
         return (
-            <form onSubmit={this.handleSubmit} className="form">
-                <div className="input-div">
-                    <label htmlFor="title" className="input-label">Title</label>
-                    <input 
-                        type="text"
-                        className="form-control"
-                        id="title"
-                        value={title}
-                        onChange={this.handleChange}
-                    />
-                </div>
-                <button type="submit" className="btn-success">
-                    ADD
+            <div>
+                <form onSubmit={this.handleSubmit} className="form">
+                    <div className="input-div">
+                        <label htmlFor="title" className="input-label">Title</label>
+                        <input 
+                            type="text"
+                            className="form-control"
+                            id="title"
+                            value={title}
+                            onChange={this.handleChange}
+                        />
+                    </div>
+                    <button type="submit" className="btn">
+                        ADD
+                    </button>
+                </form>
+                <button className="btn-success btn" onClick={this.handleSaveList}>
+                    SAVE LIST
                 </button>
-            </form>
+            </div>
         );
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        addMovie: movie => dispatch(addMovie(movie))
+        addMovie: movie => dispatch(addMovie(movie)),
+        toggleSavingList: () => dispatch(toggleSavingList())
     }
 }
 
